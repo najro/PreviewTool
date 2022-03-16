@@ -34,6 +34,8 @@ namespace WindowsFormsPreviewTool
             }
 
             webView2.Source = new Uri(Directory.GetCurrentDirectory() + $"\\{PreviewFolder}\\template\\start.htm");
+
+            labelSelectedDirectory.Text = GetFilesToPreviewFolder;
         }
 
         private async Task InitializeAsync()
@@ -43,15 +45,15 @@ namespace WindowsFormsPreviewTool
             Debug.WriteLine("WebView2 Runtime version: " + webView2.CoreWebView2.Environment.BrowserVersionString);
         }
 
+
         private void InitializeListViewAndLoadFiles()
         {
-
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
             listView1.View = View.List;
 
-            var files = Directory.GetFiles($"{Directory.GetCurrentDirectory()}\\{FilesFolder}", "*.*", SearchOption.AllDirectories);
-
+            // read all files from preview folder to build up unique list of file names
+            var files = Directory.GetFiles(GetFilesToPreviewFolder, "*.*", SearchOption.AllDirectories);
             var fileNames = new List<string>();
 
             foreach (string file in files)
@@ -69,11 +71,19 @@ namespace WindowsFormsPreviewTool
                 listView1.Items.Add(item);
             }
 
-
+            // Remove all previous preview files
             DirectoryInfo di = new DirectoryInfo($"{Directory.GetCurrentDirectory()}\\{PreviewFolder}");
             foreach (FileInfo file in di.EnumerateFiles())
             {
                 file.Delete();
+            }
+        }
+
+        private string GetFilesToPreviewFolder
+        {
+            get
+            {
+                return $"{Directory.GetCurrentDirectory()}\\{FilesFolder}";
             }
         }
 
@@ -89,11 +99,11 @@ namespace WindowsFormsPreviewTool
                 var fileName = listView1.SelectedItems[0].Text;
                 Debug.WriteLine(fileName + " is selected");
 
-                var currentFileDiretory = $"{Directory.GetCurrentDirectory()}\\{FilesFolder}";
+              
 
 
                 // read json file
-                var jsonFile = $"{currentFileDiretory}\\{fileName}.json";
+                var jsonFile = $"{GetFilesToPreviewFolder}\\{fileName}.json";
                 var jsonFileContent = "";
 
                 if (File.Exists(jsonFile))
@@ -102,7 +112,7 @@ namespace WindowsFormsPreviewTool
                 }
 
                 // read svg file
-                var svgFile = $"{currentFileDiretory}\\{fileName}.svg";
+                var svgFile = $"{GetFilesToPreviewFolder}\\{fileName}.svg";
 
                 if (!File.Exists(svgFile))
                 {
@@ -110,7 +120,7 @@ namespace WindowsFormsPreviewTool
                 }
 
                 //// read jpg file
-                var jpgFile = $"{currentFileDiretory}\\{fileName}.jpg";
+                var jpgFile = $"{GetFilesToPreviewFolder}\\{fileName}.jpg";
 
                 if (!File.Exists(jpgFile))
                 {
@@ -119,7 +129,7 @@ namespace WindowsFormsPreviewTool
 
 
                 //// read png file
-                var pngFile = $"{currentFileDiretory}\\{fileName}.png";
+                var pngFile = $"{GetFilesToPreviewFolder}\\{fileName}.png";
 
                 if (!File.Exists(pngFile))
                 {
