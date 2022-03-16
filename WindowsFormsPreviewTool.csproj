@@ -254,6 +254,7 @@
     <Content Include="Preview\Sample\sample.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Preview\Sample\ToolSample.jpg" />
     <Content Include="Preview\Template\start.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
