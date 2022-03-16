@@ -2,6 +2,9 @@
 
 ![Preview of tool](/Preview/Sample/ToolSample.jpg "Preview of tool")
 
+
+**Preview Tool for figures** is a POC windows form to illustrate how to render Highcharts files locally within a windows form.
+
 Files added under the **files** folder will be visible in left side of tool as selectable items. 
 Files with same name (without the file extension) will be merged as one entry in list. 
 When an item is selected, a preview of the file will be shown in the right side window. 
@@ -12,13 +15,17 @@ When an item is seleted, the preview html pages is generated on-the-fly and disp
 ##  Description of file structure
 
 
+
 ##  Technology used
 - Visual Studio 2019
 - Forms Development (C#)
-- Using version 9.3.1 of Higcharts locally downloaded
-- Using Microsoft Edge WebView2 to be able to display Highcharts figures. Information about the component can be found here : https://docs.microsoft.com/en-us/microsoft-edge/webview2/
+- Version 9.3.1 of Higcharts locally downloaded
+- Microsoft Edge WebView2 component to display Highcharts figures. 
+	- https://docs.microsoft.com/en-us/microsoft-edge/webview2/
+	- https://docs.microsoft.com/en-us/microsoft-edge/webview2/how-to/machine-setup
+	- https://developer.microsoft.com/en-us/microsoft-edge/webview2/
 
-## sfsdf
 
-// Warning in Visual Studio (microsoft.vclibs.desktop)
+## Additional information
+Regarding Warning in Visual Studio about **microsoft.vclibs.desktop**
 https://developercommunity.visualstudio.com/t/the-referenced-component-microsoftvclibs-could-not/849433
