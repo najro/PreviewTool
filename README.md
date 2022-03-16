@@ -1,6 +1,6 @@
 # Preview Tool for figures
 
-![Preview of tool](/preview/sample/sample.svg "Preview of tool")
+![Preview of tool](/Preview/Sample/sample.svg "Preview of tool")
 
 Files added under files folder will be visible in left side of tool as selectable items. 
 Files with same name (without the file extension) will be merged as one entry in list. 
