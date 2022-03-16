@@ -28,9 +28,6 @@ namespace WindowsFormsPreviewTool
             await InitializeAsync();
             Debug.WriteLine("after InitializeAsync");
 
-            //webView2.CoreWebView2.Navigate("https://www.microsoft.com");
-            //Debug.WriteLine("after Navigate");
-
             if ((webView2 == null) || (webView2.CoreWebView2 == null))
             {
                 Debug.WriteLine("webview not ready");
@@ -89,7 +86,7 @@ namespace WindowsFormsPreviewTool
         {
             if (listView1.SelectedItems.Count == 1)
             {
-                String fileName = listView1.SelectedItems[0].Text;
+                var fileName = listView1.SelectedItems[0].Text;
                 Debug.WriteLine(fileName + " is selected");
 
                 var currentFileDiretory = $"{Directory.GetCurrentDirectory()}\\{FilesFolder}";
@@ -98,7 +95,7 @@ namespace WindowsFormsPreviewTool
                 // read json file
                 var jsonFile = $"{currentFileDiretory}\\{fileName}.json";
                 var jsonFileContent = "";
-                
+
                 if (File.Exists(jsonFile))
                 {
                     jsonFileContent = string.Join("", File.ReadAllLines(jsonFile, Encoding.UTF8));
@@ -129,45 +126,19 @@ namespace WindowsFormsPreviewTool
                     pngFile = string.Empty;
                 }
 
-
                 BuildPreviewView(jsonFileContent, svgFile, jpgFile, pngFile, fileName);
-
             }
-
-
         }
         private void BuildPreviewView(string jsonData, string svgUrl, string jpgUrl, string pngFile, string fileName)
         {
-
-            
-
-
-            //var files = Directory.GetFiles($"{Directory.GetCurrentDirectory()}\\{FilesFolder}", "*.htm", SearchOption.AllDirectories);
-            //var fileNames = new List<string>();
-
-            //foreach (string file in files)
-            //{
-            //    var fileName = Path.gef(file);
-
-            //    if (fileNames.Contains(fileName))
-            //        continue;
-
-            //    fileNames.Add(fileName);
-            //    var item = new ListViewItem(fileName)
-            //    {
-            //        Tag = file
-            //    };
-            //    listView1.Items.Add(item);
-            //}
-
             var templateFilePath = Directory.GetCurrentDirectory() + $"\\{PreviewFolder}\\template\\view-template.htm";
+
             var previewHtml = File.ReadAllText(templateFilePath, Encoding.UTF8);
 
             previewHtml = previewHtml.Replace("#chartJson#", !string.IsNullOrEmpty(jsonData) ? jsonData : "undefined");
             previewHtml = previewHtml.Replace("#jpgFile#", !string.IsNullOrEmpty(jpgUrl) ? $"\"{jpgUrl.Replace("\\", "\\\\")}\"" : "undefined");
             previewHtml = previewHtml.Replace("#svgFile#", !string.IsNullOrEmpty(svgUrl) ? $"\"{svgUrl.Replace("\\", "\\\\")}\"" : "undefined");
-            previewHtml = previewHtml.Replace("#pngFile#", !string.IsNullOrEmpty(pngFile) ? $"\"{svgUrl.Replace("\\", "\\\\")}\"" : "undefined");
-
+            previewHtml = previewHtml.Replace("#pngFile#", !string.IsNullOrEmpty(pngFile) ? $"\"{pngFile.Replace("\\", "\\\\")}\"" : "undefined");
 
             var viewPath = Directory.GetCurrentDirectory() + $"\\preview\\{fileName}.htm";
             File.WriteAllText(viewPath, previewHtml, Encoding.UTF8);
