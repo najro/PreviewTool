@@ -41,5 +41,5 @@ When an item is selected, the preview html pages is generated on-the-fly and dis
 
 
 ## Additional information
-Regarding Warning in Visual Studio about **microsoft.vclibs.desktop**
+Regarding Warning in Visual Studio for **microsoft.vclibs.desktop**
 https://developercommunity.visualstudio.com/t/the-referenced-component-microsoftvclibs-could-not/849433
