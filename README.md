@@ -2,6 +2,7 @@
 
 ![Preview of tool](/Preview/Sample/ToolSample.jpg "Preview of tool")
 
+> **Note:** The **Preview tool** is just implemented as a POC and is not production ready. Should only be used as input for a new implementation integrated in already existing system
 
 **Preview Tool for figures** is a POC windows form to illustrate how to render Highcharts files locally within a windows form.
 
@@ -14,11 +15,21 @@ When an item is seleted, the preview html pages is generated on-the-fly and disp
 
 ##  Description of file structure
 
+![File structure of tool](/Preview/Sample/ToolFileStructure.jpg "File structure of tool")
 
+|Files						|Description
+|---------------------------|-------------------------------
+|files 						| Folder containing  samlpe files. Files with same name are consilidated into  one name in list. 
+|highcharts/scripts/9.3.1	| Contains offline version of highcharts javascript files. Same version as regjeringen.no are using.
+|preview/sample/sample.htm	|Contains a simple html page displaying a highchart figure and svg image. Just open up in a browser to check it out. Reference to latest highcharts javascriopt online.
+|XX|     XXX
+|XX|     XXX
+|XX|     XXX
+|XX|     XXX
 
 ##  Technology used
 - Visual Studio 2019
-- Forms Development (C#)
+- Forms Development (C#, .Net Framework 4.7.2)
 - Version 9.3.1 of Higcharts locally downloaded
 - Microsoft Edge WebView2 component to display Highcharts figures. 
 	- https://docs.microsoft.com/en-us/microsoft-edge/webview2/
