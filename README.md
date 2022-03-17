@@ -9,7 +9,9 @@
 Files added under **[Files](/Files)** folder will be visible in the left side of tool, as selectable items. 
 
 Files with the same name (without the file extension) will be merged as one item entry in list. When an item is selected, a preview of the file will be shown in the right side window. 
+
 Preview is done with help of an dynamic generated html page and supports preview of .json (Highcharts), svg, jpg and png. The example files under **[Files](/Files)** only contains .json and .svg files.
+
 If jpg or png is added, they will be shown as preview in the tool. 
 
 When an item is selected, the preview html pages is generated on-the-fly and displayed in the right side window with help of a WebView2 component.
