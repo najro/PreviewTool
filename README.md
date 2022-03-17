@@ -1,6 +1,6 @@
 # Preview Tool for figures
 
-> **Note:** The **Preview Tool** is just implemented as a POC and is not production ready. Should only be used as input for a new implementation integrated in already existing system
+> **Note:** The **Preview Tool** is just implemented as a POC and is **not production ready**. Should only be used as input for a new implementation integrated in already existing system
 
 ![Preview of tool](/Preview/Sample/ToolSample.jpg "Preview of tool")
 
@@ -16,7 +16,7 @@ When an item is selected, the preview html pages is generated on-the-fly and dis
 
 ##  Description of file structure
 
-![File structure of tool](/Preview/Sample/ToolFileStructure.jpg "File structure of tool")
+![File structure of preview tool](/Preview/Sample/ToolFileStructure.jpg "File structure of preview tool")
 
 |Files           |Description
 |----------------|-------------------------------
